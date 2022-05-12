@@ -151,6 +151,7 @@ main {
 main blockquote {
 	padding-left: calc(var(--base-size)*1rem);
 	border-left: calc(var(--base-size)*.5rem) solid var(--color-mid);
+	margin-right: calc(var(--base-size)*1rem);
 }
 
 @media screen and (min-width: 40em){

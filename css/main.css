@@ -5,6 +5,7 @@
 	--color-mid: #909090;
 	--color-alt: #7a7a7a;
 	--color-pop: #17c3b2;
+	--color-pop-dark: #129c8e;
 	--color-disable: #4d4d4d;
 	--font-default: 'IBM Plex Mono', monospace;
 }
@@ -75,9 +76,10 @@ header button {
 }
 
 button {
-	border: 1px solid var(--color-light);
+	width: calc(var(--base-size)*3rem);
+	border: 1px solid transparent;
 	padding: .5rem 1rem;
-	background-color: transparent;
+	background: transparent;
 	color: var(--color-light);
 	text-align: center;
 	font-size: calc(var(--base-size)*.8rem);
@@ -91,14 +93,16 @@ button {
 	}
 }
 
+button svg {
+	transform: translateY(-1px);
+}
+
 p.disabled {
 	color: var(--color-disable);
 	pointer-events: none;
 }
 
 button[disabled] {
-	border-color: var(--color-disable);
-	color: var(--color-disable);
 	pointer-events: none;
 }
 
@@ -110,17 +114,29 @@ button[disabled] {
   background-color: #17c3b2;
 }
 
+#btn-save-fav {
+	background: var(--color-disable);
+}
+
 #btn-save-fav svg {
   height: 1.25rem;
+  fill: var(--color-light);
+}
+
+#btn-save-fav[disabled] svg {
+	fill: var(--color-alt);
+}
+
+#btn-save-fav.saving svg {
   fill: var(--color-pop);
   animation: spin .4s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
 
-#btn-save-fav .icon-check {
-	fill: #fff;
-	animation: none;
+#btn-save-fav.confirmed svg {
+  fill: var(--color-light);
+  animation: none;
 }
 
 @keyframes spin {
@@ -135,6 +151,7 @@ main {
 main blockquote {
 	padding-left: calc(var(--base-size)*1rem);
 	border-left: calc(var(--base-size)*.5rem) solid var(--color-mid);
+	margin-right: calc(var(--base-size)*1rem);
 }
 
 @media screen and (min-width: 40em){
@@ -147,7 +164,7 @@ main blockquote {
 }
 
 main blockquote p {
-	font-size: calc(var(--base-size)*1.2rem);
+	font-size: calc(var(--base-size)*1rem);
 }
 
 @media screen and (min-width: 40em){
@@ -185,18 +202,17 @@ footer p {
 
 footer button,
 footer button[disabled] {
-	border-color: transparent;
-	background-color: transparent;
+	background-color: var(--color-disable);
 	color: transparent;
 }
 
 footer button svg {
 	height: calc(var(--base-size)*1rem);
-	fill: var(--color-pop);
+	fill: var(--color-light);
 }
 
 footer button[disabled] svg {
-	fill: var(--color-disable);
+	fill: var(--color-alt);
 }
 
 .favs {
@@ -244,8 +260,12 @@ footer button[disabled] svg {
 }
 
 .favs .hgroup button {
-	color: var(--color-dark);
-	border-color: var(--color-dark);
+	background-color: var(--color-pop-dark);
+}
+
+.favs .hgroup button svg {
+	height: calc(var(--base-size)*1rem);
+	fill: var(--color-light);
 }
 
 .favs.closed {
@@ -277,6 +297,7 @@ footer button[disabled] svg {
 	position: relative;
 	color: var(--color-dark);
 	background-color: var(--color-light);
+	display: inline-block; /* prevent FF from breaking element into cols */
 }
 
 .favs-group .fav-quote ::-moz-selection {
@@ -293,7 +314,6 @@ footer button[disabled] svg {
 	position: absolute;
 	top: .75rem;
 	right: .5rem;
-	border: 0;
 	font-family: var(--font-default);
 	font-size: calc(var(--base-size)*.8rem);
 	color: var(--color-pop);

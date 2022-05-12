@@ -151,7 +151,6 @@ main {
 main blockquote {
 	padding-left: calc(var(--base-size)*1rem);
 	border-left: calc(var(--base-size)*.5rem) solid var(--color-mid);
-	margin-right: calc(var(--base-size)*1rem);
 }
 
 @media screen and (min-width: 40em){
@@ -165,6 +164,7 @@ main blockquote {
 
 main blockquote p {
 	font-size: calc(var(--base-size)*1rem);
+	line-height: 1.4;
 }
 
 @media screen and (min-width: 40em){

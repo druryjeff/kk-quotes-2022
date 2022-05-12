@@ -204,7 +204,7 @@ function updateFavs(){
 
 function checkFavs(){
 	// have to check length of parsed value (otherwise JSON strings are counted)
-	if(JSON.parse(localStorage.getItem('favs')).length){
+	if(JSON.parse(JSON.parse(localStorage.getItem('favs')).length){
 		const favsResults = JSON.parse(localStorage.getItem('favs'));
 		// includes() will return true or false
 		btnSaveFav.disabled = favsResults.includes(currQuote);

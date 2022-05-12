@@ -121,6 +121,7 @@ function selectRandomQuote(){
 
 	const r = Math.floor(Math.random()*quotes.length);
 	p.textContent = quotes[r];
+	p.dataset.index = r;
 
 	// save current quote value
 	currQuote = quotes[r];
@@ -142,7 +143,7 @@ function getFavs(){
 	if( localStorage.getItem('favs') ){
 		const favsResults = JSON.parse(localStorage.getItem('favs'));
 		const favs = favsResults.map(function(f,i){
-			return `<div class="fav-quote"><blockquote><p>${f}</p></blockquote><button>X</button></div>`;
+			return `<div class="fav-quote"><blockquote><p data-index="${i}">${f}</p></blockquote><button>X</button></div>`;
 		})
 		favsGroup.innerHTML = favs.reverse().join('');
 		// handle delete

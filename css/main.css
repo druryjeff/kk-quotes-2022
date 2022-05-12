@@ -181,6 +181,27 @@ main blockquote p {
 	}
 }
 
+main blockquote p::before {
+	content: attr(data-index);
+	position: fixed;
+	top: 50%;
+	right: 0;
+	transform: translateY(-50%);
+	font-size: 10rem;
+	line-height: 1;
+	color: var(--color-disable);
+	z-index: -1;
+	writing-mode: vertical-lr;
+}
+
+@media screen and (min-width: 67.5em){
+	main blockquote p::before {
+		writing-mode: horizontal-tb;
+		font-size: 20rem;
+		right: calc(var(--base-size)*1rem);
+	}
+}
+
 footer {
 	width: 100%;
 	align-self: end;

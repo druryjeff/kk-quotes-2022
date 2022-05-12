@@ -277,6 +277,7 @@ footer button[disabled] svg {
 	position: relative;
 	color: var(--color-dark);
 	background-color: var(--color-light);
+	display: inline-block; /* prevent FF from breaking element into cols */
 }
 
 .favs-group .fav-quote ::-moz-selection {

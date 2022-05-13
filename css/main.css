@@ -36,7 +36,7 @@ body {
 	font-family: var(--font-default);
 	padding: calc(var(--base-size)*1rem);
 	color: var(--color-light);
-	background-color: var(--color-dark);
+	background-color: #171717;
 	opacity: .9;
 }
 
@@ -111,7 +111,7 @@ button[disabled] {
 }
 
 .confirmed {
-  background-color: #17c3b2;
+  background-color: var(--color-pop) !important;
 }
 
 #btn-save-fav {
@@ -150,7 +150,7 @@ main {
 
 main blockquote {
 	padding-left: calc(var(--base-size)*1rem);
-	border-left: calc(var(--base-size)*.5rem) solid var(--color-mid);
+	border-left: 1px solid var(--color-mid);
 	margin-right: calc(var(--base-size)*1rem);
 }
 
@@ -165,13 +165,12 @@ main blockquote {
 
 main blockquote p {
 	font-size: calc(var(--base-size)*1rem);
-	line-height: 1.2;
+	line-height: 1.4;
 }
 
 @media screen and (min-width: 40em){
 	main blockquote p {
 		font-size: calc(var(--base-size)*1.4rem);
-		line-height: 1.4;
 	}
 }
 
@@ -335,8 +334,9 @@ footer button[disabled] svg {
 
 .favs-group .fav-quote button {
 	position: absolute;
-	top: .75rem;
-	right: .5rem;
+	top: 1.25rem;
+  right: 0.0125rem;
+  padding: 0;
 	font-family: var(--font-default);
 	font-size: calc(var(--base-size)*.8rem);
 	color: var(--color-pop);

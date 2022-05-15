@@ -41,7 +41,7 @@ body, html {
 body {
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: auto 1fr auto;
+	grid-template-rows: 5% 90% 5%; /* Use percentages to address mobile Safari address bar */
 	font-family: var(--font-default);
 	padding: 1.25rem;
 	color: var(--color-light);
@@ -62,6 +62,7 @@ body {
 }
 
 header {
+	align-self: start;
 	display: grid;
 	grid-template-columns: 1fr auto;
 	grid-gap: 2.5rem;
@@ -489,5 +490,11 @@ footer button[disabled] svg {
 @media screen and (min-width: 40em){
 	.swap {
 		display: none;
+	}
+}
+
+@media screen and (max-height: 26.75em) and (orientation: landscape){
+	.swap {
+		display: inline;
 	}
 }

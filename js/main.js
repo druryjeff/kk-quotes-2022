@@ -256,6 +256,7 @@ function showProcessing(){
 /* SELECT RANDOM QUOTE */
 
 function displayRandomQuote(e){
+	// adding preventDefault prevents basic touch events from zooming on mobile Safari
 	e.preventDefault();
 	if(e.key === ' ' || e.type === 'touchstart'){
 	    selectRandomQuote();

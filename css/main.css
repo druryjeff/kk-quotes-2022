@@ -17,6 +17,7 @@ Note on Breakpoints: ;
 	--color-pop-dark: #129c8e;
 	--color-disable: #4d4d4d;
 	--font-default: 'IBM Plex Mono', monospace;
+	--app-height: 100%;
 }
 
 * {
@@ -35,7 +36,7 @@ Note on Breakpoints: ;
 }
 
 body, html {
-	height: 100%;
+	height: var(--app-height);
 }
 
 body {

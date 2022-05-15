@@ -221,7 +221,7 @@ main blockquote {
 }
 
 main blockquote p {
-	font-size: 1.25rem;
+	font-size: 1rem;
 	line-height: 1.4;
 }
 
@@ -239,8 +239,7 @@ main blockquote p {
 
 @media screen and (max-height: 26.75em) and (orientation: landscape){
 	main blockquote p {
-		font-size: 1.25rem;
-		line-height: 1.4;
+		font-size: 1rem;
 	}
 }
 

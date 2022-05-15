@@ -1,5 +1,14 @@
+/*
+
+Note on Breakpoints: ;
+
+- portrait orientation for mobile is based on the widest iphone - 428/26.75
+- this is the biggest screen of the most common screens listed in XD
+- so it should be a good baseline (without having to target too many scenarios)
+
+*/
+
 :root {
-	--base-size: 1.25;
 	--color-dark: #212121;
 	--color-light: #ffffff;
 	--color-mid: #909090;
@@ -34,7 +43,7 @@ body {
 	grid-template-columns: 1fr;
 	grid-template-rows: auto 1fr auto;
 	font-family: var(--font-default);
-	padding: calc(var(--base-size)*1rem);
+	padding: 1.25rem;
 	color: var(--color-light);
 	background-color: #171717;
 	opacity: .9;
@@ -42,21 +51,27 @@ body {
 
 @media screen and (min-width: 40em){
 	body {
-		padding: calc(var(--base-size)*1.5rem);
+		padding: 1.875rem;
+	}
+}
+
+@media screen and (max-height: 26.75rem) and (orientation: landscape){
+	body {
+		padding: 1.25rem;
 	}
 }
 
 header {
 	display: grid;
 	grid-template-columns: 1fr auto;
-	grid-gap: calc(var(--base-size)*2rem);
+	grid-gap: 2.5rem;
 	align-items: center;
 }
 
 header h1 {
 	color: var(--color-mid);
 	font-weight: 400;
-	font-size: calc(var(--base-size)*.8rem);
+	font-size: 1rem;
 	margin: 0;
 }
 
@@ -67,7 +82,13 @@ header h1 a {
 
 @media screen and (min-width: 40em){
 	header h1 {
-		font-size: calc(var(--base-size)*1rem);
+		font-size: 1.25rem;
+	}
+}
+
+@media screen and (max-height: 26.75em) and (orientation: landscape){
+	header h1 {
+		font-size: 1rem;
 	}
 }
 
@@ -76,25 +97,40 @@ header button {
 }
 
 button {
-	width: calc(var(--base-size)*3rem);
+	width: 2.5rem;
 	border: 1px solid transparent;
-	padding: .5rem 1rem;
+	padding: .25rem .5rem;
 	background: transparent;
 	color: var(--color-light);
 	text-align: center;
-	font-size: calc(var(--base-size)*.8rem);
+	font-size: 1rem;
 	border-radius: .5rem;
 	cursor: pointer;
 }
 
 @media screen and (min-width: 40em){
 	button {
-		font-size: calc(var(--base-size)*1rem);
+		width: 3.75rem;
+		padding: .5rem 1rem;
+		font-size: 1.25rem;
+	}
+}
+
+@media screen and (max-height: 26.75em) and (orientation: landscape){
+	button {
+		width: 2.5rem;
+		padding: .25rem .5rem;
 	}
 }
 
 button svg {
 	transform: translateY(-1px);
+}
+
+@media screen and (max-height: 26.75em) and (orientation: landscape){
+	button svg {
+		transform: translateY(-2px);
+	}
 }
 
 p.disabled {
@@ -119,8 +155,20 @@ button[disabled] {
 }
 
 #btn-save-fav svg {
-  height: 1.25rem;
+  height: 1rem;
   fill: var(--color-light);
+}
+
+@media screen and (min-width: 40em){
+	#btn-save-fav svg {
+		height: 1.25rem;
+	}
+}
+
+@media screen and (max-height: 26.75em) and (orientation: landscape){
+	#btn-save-fav svg {
+	  height: 1rem;
+	}
 }
 
 #btn-save-fav[disabled] svg {
@@ -149,34 +197,50 @@ main {
 }
 
 main blockquote {
-	padding-left: calc(var(--base-size)*1rem);
+	padding-left: 1.25rem;
 	border-left: 1px solid var(--color-mid);
-	margin-right: calc(var(--base-size)*1rem);
+	margin-right: 1.25rem;
 }
 
 @media screen and (min-width: 40em){
 	main blockquote {
-		padding-left: calc(var(--base-size)*2rem);
-		margin-left: calc(var(--base-size)*4rem);
-		margin-right: calc(var(--base-size)*8rem);
-		border-left-width: calc(var(--base-size)*1rem);
+		padding-left: 2.5rem;
+		margin-left: 5rem;
+		margin-right: 10rem;
+		border-left-width: 1.25rem;
+	}
+}
+
+@media screen and (max-height: 26.75em) and (orientation: landscape){
+	main blockquote {
+		padding-left: 1.25rem;
+		margin-left: 0;
+		margin-right: 2.5rem;
+		border-left-width: .5rem;
 	}
 }
 
 main blockquote p {
-	font-size: calc(var(--base-size)*1rem);
+	font-size: 1.25rem;
 	line-height: 1.4;
 }
 
 @media screen and (min-width: 40em){
 	main blockquote p {
-		font-size: calc(var(--base-size)*1.4rem);
+		font-size: 1.75rem;
 	}
 }
 
 @media screen and (min-width: 67.5em){
 	main blockquote p {
-		font-size: calc(var(--base-size)*1.8rem);
+		font-size: 2.25rem;
+	}
+}
+
+@media screen and (max-height: 26.75em) and (orientation: landscape){
+	main blockquote p {
+		font-size: 1.25rem;
+		line-height: 1.4;
 	}
 }
 
@@ -197,7 +261,13 @@ main blockquote p::before {
 	main blockquote p::before {
 		writing-mode: horizontal-tb;
 		font-size: 20rem;
-		right: calc(var(--base-size)*1rem);
+		right: 1.25rem;
+	}
+}
+
+@media screen and (max-height: 26.75rem) and (orientation: landscape){
+	main blockquote p::before {
+		font-size: 7.5rem;
 	}
 }
 
@@ -207,18 +277,24 @@ footer {
 	justify-self: end;
 	display: grid;
 	grid-template-columns: 1fr auto;
-	grid-gap: calc(var(--base-size)*2rem);
+	grid-gap: 2.5rem;
 	align-items: center;
 }
 
 footer p {
-	font-size: calc(var(--base-size)*.8rem);
+	font-size: 1rem;
 	color: var(--color-mid);
 }
 
 @media screen and (min-width: 40em){
 	footer p {
-		font-size: calc(var(--base-size)*1rem);
+		font-size: 1.25rem;
+	}
+}
+
+@media screen and (max-height: 26.75em) and (orientation: landscape){
+	footer p {
+		font-size: 1rem;
 	}
 }
 
@@ -229,8 +305,20 @@ footer button[disabled] {
 }
 
 footer button svg {
-	height: calc(var(--base-size)*1rem);
+	height: 1rem;
 	fill: var(--color-light);
+}
+
+@media screen and (min-width: 40em){
+	footer button svg {
+		height: 1.25rem;
+	}
+}
+
+@media screen and (max-height: 26.75em) and (orientation: landscape){
+	footer button svg {
+		height: 1rem;
+	}
 }
 
 footer button[disabled] svg {
@@ -244,7 +332,7 @@ footer button[disabled] svg {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	padding: calc(var(--base-size)*1rem);
+	padding: 1.25rem;
 	background-color: var(--color-pop);
 	overflow: auto;
 	transition: transform .4s cubic-bezier(1.000, 0.000, 0.000, 1.000);
@@ -252,21 +340,27 @@ footer button[disabled] svg {
 
 @media screen and (min-width: 40em){
 	.favs {
-		padding: calc(var(--base-size)*1.5rem);
+		padding: 1.875rem;
+	}
+}
+
+@media screen and (max-height: 26.75rem) and (orientation: landscape){
+	.favs {
+		padding: 1.25rem;
 	}
 }
 
 .favs .hgroup {
 	display: grid;
 	grid-template-columns: 1fr auto;
-	grid-gap: calc(var(--base-size)*2rem);
+	grid-gap: 2.5rem;
 	align-items: center;
 }
 
 .favs .hgroup h2 {
 	color: var(--color-dark);
 	font-weight: 400;
-	font-size: calc(var(--base-size)*.8rem);
+	font-size: 1rem;
 	margin: 0;
 }
 
@@ -277,7 +371,7 @@ footer button[disabled] svg {
 
 @media screen and (min-width: 60em){
 	.favs .hgroup h2 {
-		font-size: calc(var(--base-size)*1rem);
+		font-size: 1.25rem;
 	}
 }
 
@@ -286,8 +380,20 @@ footer button[disabled] svg {
 }
 
 .favs .hgroup button svg {
-	height: calc(var(--base-size)*1rem);
+	height: 1rem;
 	fill: var(--color-light);
+}
+
+@media screen and (min-width: 40em){
+	.favs .hgroup button svg {
+		height: 1.25rem;
+	}
+}
+
+@media screen and (max-height: 26.75em) and (orientation: landscape){
+	.favs .hgroup button svg {
+		height: 1rem;
+	}
 }
 
 .favs.closed {
@@ -295,13 +401,14 @@ footer button[disabled] svg {
 }
 
 .favs-group {	
-	padding: calc(var(--base-size)*2rem) 0;
+	padding: 1.25rem 0;
 }
 
 @media screen and (min-width: 40em){
 	.favs-group {
 		columns: 2;
-		gap: calc(var(--base-size)*1rem);
+		gap: 1.25rem;
+		padding: 2.5rem 0;
 	}
 }
 
@@ -311,10 +418,16 @@ footer button[disabled] svg {
 	}
 }
 
+@media screen and (max-height: 26.75em) and (orientation: landscape){
+	.favs-group {
+		padding: 1.25rem 0;
+	}
+}
+
 .favs-group .fav-quote {
-	padding: calc(var(--base-size)*1rem) calc(var(--base-size)*4rem) calc(var(--base-size)*1rem) calc(var(--base-size)*1rem);
+	padding: 1.25rem 2.5rem 1.25rem 1.25rem;
 	border-radius: .5rem;
-	margin-bottom: calc(var(--base-size)*1rem);
+	margin-bottom: 1.25rem;
 	break-inside: avoid;
 	position: relative;
 	color: var(--color-dark);
@@ -338,12 +451,24 @@ footer button[disabled] svg {
   right: 0.0125rem;
   padding: 0;
 	font-family: var(--font-default);
-	font-size: calc(var(--base-size)*.8rem);
+	font-size: 1rem;
 	color: var(--color-pop);
 }
 
 .favs-group .fav-quote p {
-	font-size: calc(var(--base-size)*1rem);
+	font-size: 1rem;
+}
+
+@media screen and (min-width: 40em){
+	.favs-group .fav-quote p {
+		font-size: 1.25rem;
+	}
+}
+
+@media screen and (max-height: 26.75em) and (orientation: landscape){
+	.favs-group .fav-quote p {
+		font-size: 1rem;
+	}
 }
 
 /* UTILITIES */

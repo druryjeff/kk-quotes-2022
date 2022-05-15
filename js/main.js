@@ -256,6 +256,7 @@ function showProcessing(){
 /* SELECT RANDOM QUOTE */
 
 function displayRandomQuote(e){
+	e.preventDefault();
 	if(e.key === ' ' || e.type === 'touchstart'){
 	    selectRandomQuote();
 	}

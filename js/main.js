@@ -204,15 +204,18 @@ function updateFavs(){
 /* MANAGE SAVE AND VIEW/DISPLAY BUTTON STATES */
 
 function checkFavs(){
-	// have to check length of parsed value (otherwise JSON strings are counted)
-	if(JSON.parse(localStorage.getItem('favs')).length){
-		const favsResults = JSON.parse(localStorage.getItem('favs'));
-		// includes() will return true or false
-		btnSaveFav.disabled = favsResults.includes(currQuote);
-		btnOpenFav.disabled = false;
-	} else {
-		btnOpenFav.disabled = true;
-		btnSaveFav.disabled = false
+	// check if local storage item exists
+	if(JSON.parse(localStorage.getItem('favs'))){
+		// have to check length of parsed value (otherwise JSON strings are counted)
+		if(JSON.parse(localStorage.getItem('favs')).length){
+			const favsResults = JSON.parse(localStorage.getItem('favs'));
+			// includes() will return true or false
+			btnSaveFav.disabled = favsResults.includes(currQuote);
+			btnOpenFav.disabled = false;
+		} else {
+			btnOpenFav.disabled = true;
+			btnSaveFav.disabled = false
+		}
 	}
 }
 
@@ -260,6 +263,13 @@ function displayRandomQuote(e){
 	checkFavs();
 }
 
+/* ACCOUNT FOR ADDRESS BAR SHOWING/HIDING (via https://dev.to/maciejtrzcinski/100vh-problem-with-ios-safari-3ge9) */
+
+function setAppHeight(){
+    const doc = document.documentElement
+    doc.style.setProperty('--app-height', `${window.innerHeight/16}rem`)
+}
+
 /* EVENTS */
 
 btnSaveFav.addEventListener('click',function(e){
@@ -282,4 +292,7 @@ btnCloseFav.addEventListener('click',function(e){
 	favsContainer.classList.add('closed');
 })
 
+window.addEventListener('resize', setAppHeight);
+
 selectRandomQuote();
+setAppHeight();

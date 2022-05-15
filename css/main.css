@@ -41,7 +41,7 @@ body, html {
 body {
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 5% 90% 5%; /* Use percentages to address mobile Safari address bar */
+	grid-template-rows: auto 1fr auto;
 	font-family: var(--font-default);
 	padding: 1.25rem;
 	color: var(--color-light);
@@ -62,7 +62,6 @@ body {
 }
 
 header {
-	align-self: start;
 	display: grid;
 	grid-template-columns: 1fr auto;
 	grid-gap: 2.5rem;

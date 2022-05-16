@@ -128,13 +128,14 @@ button {
 
 button svg {
 	height: 1rem;
-	transform: translateY(-1px);
+	transform: translateY(-2px);
 	fill: var(--color-light);
 }
 
 @media screen and (min-width: 40em){
 	button svg {
 		height: 1.25rem;
+		transform: translateY(-1px);
 	}
 }
 

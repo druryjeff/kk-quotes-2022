@@ -20,7 +20,7 @@ const quotes = [
 	'Ask funders for money, and they’ll give you advice; but ask for advice and they’ll give you money.',
 	'Productivity is often a distraction. Don’t aim for better ways to get through your tasks as quickly as possible, rather aim for better tasks that you never want to stop doing.',
 	'Immediately pay what you owe to vendors, workers, contractors. They will go out of their way to work with you first next time.',
-	'The biggest lie we tell ourselves is “I Don’t need to write this down because I will remember it.”',
+	'The biggest lie we tell ourselves is “I don’t need to write this down because I will remember it.”',
 	'Your growth as a conscious being is measured by the number of uncomfortable conversations you are willing to have.',
 	'Speak confidently as if you are right, but listen carefully as if you are wrong.',
 	'Handy measure: the distance between your fingertips of your outstretched arms at shoulder level is your height.',
@@ -91,7 +91,7 @@ const quotes = [
 	'When negotiating, don’t aim for a bigger piece of the pie; aim to create a bigger pie.',
 	'If you repeated what you did today 365 more times will you be where you want to be next year?',
 	'You see only 2% of another person, and they see only 2% of you. Attune yourselves to the hidden 98%.',
-	'Your time and space are limited. Remove, give away, throw out things in your life that Don’t spark joy any longer in order to make room for those that do.',
+	'Your time and space are limited. Remove, give away, throw out things in your life that don’t spark joy any longer in order to make room for those that do.',
 	'Our descendants will achieve things that will amaze us, yet a portion of what they will create could have been made with today’s materials and tools if we had had the imagination. Think bigger.',
 	'For a great payoff be especially curious about the things you are not interested in.',
 	'Focus on directions rather than destinations. Who knows their destiny? But maintain the right direction and you’ll arrive at where you want to go.',
@@ -108,7 +108,7 @@ const quotes = [
 
 /* GLOBAL VARS */
 
-const p = document.querySelector('blockquote p');
+const blockQuote = document.querySelector('blockquote p');
 const favsContainer = document.querySelector('.favs');
 const btnSaveFav = document.getElementById('btn-save-fav');
 const btnOpenFav = document.getElementById('btn-open-fav');
@@ -118,22 +118,18 @@ let currQuote;
 /* SELECT, SAVE AND DISPLAY QUOTE */
 
 function selectRandomQuote(){
-
+	// get and set random quote
 	const r = Math.floor(Math.random()*quotes.length);
-	p.textContent = quotes[r];
-	p.dataset.index = r;
-
+	blockQuote.textContent = quotes[r];
+	blockQuote.dataset.index = r;
 	// save current quote value
 	currQuote = quotes[r];
-
 	// register events when page loads
 	// use named function so events can be removed later in showProcessing()
 	window.addEventListener('keypress', displayRandomQuote);
-	p.addEventListener('touchstart', displayRandomQuote);
-
+	blockQuote.addEventListener('touchstart', displayRandomQuote);
 	// set initial visibility of buttons
 	checkFavs();
-
 }
 
 /* LOAD FAVS WHEN "VIEW FAVS" BUTTON IS CLICKED */
@@ -233,7 +229,7 @@ function showProcessing(){
 	btnSaveFav.classList.add('saving');
 	btnOpenFav.disabled = true;
 	window.removeEventListener('keypress', displayRandomQuote);
-	p.removeEventListener('touchstart', displayRandomQuote);
+	blockQuote.removeEventListener('touchstart', displayRandomQuote);
 	spacebarNote.classList.add('disabled');
 	// processing next stage
 	setTimeout(function(){
@@ -246,7 +242,7 @@ function showProcessing(){
 	    btnSaveFav.classList.remove('confirmed','saving');
 	    btnOpenFav.disabled = false;
 	    window.addEventListener('keypress', displayRandomQuote);
-	    p.addEventListener('touchstart', displayRandomQuote);
+	    blockQuote.addEventListener('touchstart', displayRandomQuote);
 	    spacebarNote.classList.remove('disabled');
 	    checkFavs();
 	  },1000)
@@ -265,7 +261,7 @@ function displayRandomQuote(e){
 	checkFavs();
 }
 
-/* ACCOUNT FOR ADDRESS BAR SHOWING/HIDING (via https://dev.to/maciejtrzcinski/100vh-problem-with-ios-safari-3ge9) */
+/* ACCOUNT FOR ADDRESS BAR ON MOBILE SAFARI SHOWING/HIDING (via https://dev.to/maciejtrzcinski/100vh-problem-with-ios-safari-3ge9) */
 
 function setAppHeight(){
     const doc = document.documentElement
@@ -295,6 +291,8 @@ btnCloseFav.addEventListener('click',function(e){
 })
 
 window.addEventListener('resize', setAppHeight);
+
+/* INITIALIZE */
 
 selectRandomQuote();
 setAppHeight();

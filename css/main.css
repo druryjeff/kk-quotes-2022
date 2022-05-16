@@ -283,6 +283,8 @@ footer p {
 	}
 }
 
+/* FAVORITES */
+
 .favs {
 	position: fixed;
 	top: 0;
@@ -307,6 +309,12 @@ footer p {
 		padding: 1.25rem;
 	}
 }
+
+.favs.closed {
+	transform: translateY(100%);
+}
+
+/* FAVORITES HEADER */
 
 .favs .hgroup {
 	display: grid;
@@ -337,9 +345,7 @@ footer p {
 	background-color: var(--color-pop-dark);
 }
 
-.favs.closed {
-	transform: translateY(100%);
-}
+/* FAVORITE QUOTES WRAPPER */
 
 .favs-group {	
 	padding: 1.25rem 0;
@@ -364,6 +370,8 @@ footer p {
 		padding: 1.25rem 0;
 	}
 }
+
+/* FAVORITE QUOTE CARDS */
 
 .favs-group .fav-quote {
 	display: inline-block; /* prevent FF from breaking element into cols */
@@ -434,6 +442,12 @@ footer p {
 @media screen and (min-width: 40em){
 	.abbrv {
 		display: inline;
+	}
+}
+
+@media screen and (max-height: 26.75em) and (orientation: landscape){
+	.abbrv {
+		display: none;
 	}
 }
 

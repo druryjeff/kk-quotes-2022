@@ -104,7 +104,7 @@ header button {
 button {
 	width: 2.5rem;
 	padding: .25rem .5rem;
-	border: 1px solid transparent;
+	border: 0;
 	border-radius: .5rem;
 	font-size: 1rem;
 	text-align: center;
@@ -210,26 +210,8 @@ main blockquote {
 }
 
 main blockquote p {
-	font-size: 1rem;
+	font-size: clamp(1rem, 2.5vw, 2.25rem);
 	line-height: 1.4;
-}
-
-@media screen and (min-width: 40em){
-	main blockquote p {
-		font-size: 1.75rem;
-	}
-}
-
-@media screen and (min-width: 67.5em){
-	main blockquote p {
-		font-size: 2.25rem;
-	}
-}
-
-@media screen and (max-height: 26.75em) and (orientation: landscape){
-	main blockquote p {
-		font-size: 1rem;
-	}
 }
 
 main blockquote p::before {
@@ -239,7 +221,7 @@ main blockquote p::before {
 	right: 0;
 	z-index: -1;
 	transform: translateY(-50%);
-	font-size: 10rem;
+	font-size: clamp(7.5rem, 20vw, 20rem);
 	line-height: 1;
 	writing-mode: vertical-lr;
 	color: var(--color-disable);
@@ -248,14 +230,7 @@ main blockquote p::before {
 @media screen and (min-width: 67.5em){
 	main blockquote p::before {
 		right: 1.25rem;
-		font-size: 20rem;
 		writing-mode: horizontal-tb;
-	}
-}
-
-@media screen and (max-height: 26.75rem) and (orientation: landscape){
-	main blockquote p::before {
-		font-size: 7.5rem;
 	}
 }
 
@@ -406,7 +381,6 @@ footer p {
 	background-color: transparent;
 	z-index: 1;
 	width: 100%;
-	border: 0;
 }
 
 .favs-group .fav-quote button::before {

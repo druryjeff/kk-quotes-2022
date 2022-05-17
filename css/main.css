@@ -1,10 +1,4 @@
-/*
-
-- portrait orientation for mobile is based on the widest iphone - 428/26.75
-- this is the biggest screen of the most common screens listed in XD
-- so it should be a good baseline (without having to target too many scenarios)
-
-*/
+/* UTILITIES */
 
 :root {
 	--color-dark: #212121;
@@ -34,6 +28,8 @@
   background: var(--color-pop);
 }
 
+/* BODY STYLING */
+
 body, html {
 	height: var(--app-height);
 }
@@ -61,45 +57,7 @@ body {
 	}
 }
 
-p.disabled {
-	color: var(--color-disable);
-	pointer-events: none;
-}
-
-header {
-	display: grid;
-	grid-template-columns: 1fr auto;
-	grid-gap: 2.5rem;
-	align-items: center;
-}
-
-header h1 {
-	margin: 0;
-	font-weight: 400;
-	font-size: 1rem;
-	color: var(--color-mid);
-}
-
-header h1 a {
-	text-decoration: none;
-	color: var(--color-mid);
-}
-
-@media screen and (min-width: 40em){
-	header h1 {
-		font-size: 1.25rem;
-	}
-}
-
-@media screen and (max-height: 26.75em) and (orientation: landscape){
-	header h1 {
-		font-size: 1rem;
-	}
-}
-
-header button {
-	justify-self: end;
-}
+/* BUTTONS */
 
 button {
 	width: 2.5rem;
@@ -156,6 +114,8 @@ button[disabled] svg {
 	fill: var(--color-alt);
 }
 
+/* STATE CHANGES FOR SAVE BUTTON */
+
 .saving {
   pointer-events: none;
 }
@@ -180,6 +140,54 @@ button[disabled] svg {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+/* COMMON MAIN HEADER AND FAVS HEADER STYLES */
+
+header,
+.favs .hgroup {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	grid-gap: 2.5rem;
+	align-items: center;
+}
+
+header h1,
+.favs .hgroup h2 {
+	margin: 0;
+	font-weight: 400;
+	font-size: 1rem;
+	color: var(--color-mid);
+}
+
+:where(header h1, .favs .hgroup h2) a {
+	text-decoration: none;
+}
+
+@media screen and (min-width: 40em){
+	header h1,
+	.favs .hgroup h2 {
+		font-size: 1.25rem;
+	}
+}
+
+@media screen and (max-height: 26.75em) and (orientation: landscape){
+	header h1,
+	.favs .hgroup h2 {
+		font-size: 1rem;
+	}
+}
+
+header button {
+	justify-self: end;
+}
+
+/* HEADER SPECIFIC */
+
+header h1 a {
+	color: var(--color-mid);
+}
+
+/* MAIN CONTENT */
 
 main {
 	align-self: center;
@@ -234,6 +242,8 @@ main blockquote p::before {
 	}
 }
 
+/* FOOTER */
+
 footer {
 	width: 100%;
 	align-self: end;
@@ -261,7 +271,7 @@ footer p {
 	}
 }
 
-/* FAVORITES */
+/* FAVORITES OVERLAY */
 
 .favs {
 	position: fixed;
@@ -294,29 +304,12 @@ footer p {
 
 /* FAVORITES HEADER */
 
-.favs .hgroup {
-	display: grid;
-	grid-template-columns: 1fr auto;
-	grid-gap: 2.5rem;
-	align-items: center;
-}
-
 .favs .hgroup h2 {
 	color: var(--color-dark);
-	font-weight: 400;
-	font-size: 1rem;
-	margin: 0;
 }
 
 .favs .hgroup h2 a {
 	color: var(--color-dark);
-	text-decoration: none;
-}
-
-@media screen and (min-width: 60em){
-	.favs .hgroup h2 {
-		font-size: 1.25rem;
-	}
 }
 
 .favs .hgroup button {
@@ -450,4 +443,9 @@ footer p {
 	.swap {
 		display: inline;
 	}
+}
+
+p.disabled {
+	color: var(--color-disable);
+	pointer-events: none;
 }

@@ -177,10 +177,6 @@ header h1,
 	}
 }
 
-header button {
-	justify-self: end;
-}
-
 /* HEADER SPECIFIC */
 
 header h1 a {

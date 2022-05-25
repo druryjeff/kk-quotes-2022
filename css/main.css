@@ -62,11 +62,11 @@ body {
 button {
 	width: 2.5rem;
 	padding: .25rem .5rem;
-	border: 0;
+	border: 1px solid var(--color-disable);
 	border-radius: .5rem;
 	font-size: 1rem;
 	text-align: center;
-	background: var(--color-disable);
+	background: transparent;
 	color: var(--color-light);
 	cursor: pointer;
 }
@@ -308,8 +308,8 @@ footer p {
 	color: var(--color-dark);
 }
 
-.favs .hgroup button {
-	background-color: var(--color-pop-dark);
+.favs .hgroup button svg {
+	fill: var(--color-dark);
 }
 
 /* FAVORITE QUOTES WRAPPER */

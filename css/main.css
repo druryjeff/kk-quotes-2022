@@ -370,6 +370,7 @@ footer p {
 	background-color: transparent;
 	z-index: 1;
 	width: 100%;
+	border: 0;
 }
 
 .favs-group .fav-quote button::before {
